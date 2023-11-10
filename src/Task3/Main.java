@@ -9,6 +9,8 @@ public class Main {
         Dragon dragon = new Dragon(2000, 120, 150, 250);
         hero.attack(dragon);
         dragon.attack(hero);
+        hero.attack(dragon);
+        dragon.attack(hero);
 
         if (hero.isAlive()) {
             System.out.println("герой жив");

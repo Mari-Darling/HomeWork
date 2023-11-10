@@ -16,7 +16,7 @@ public class Hero {
     }
 
     public void attack(Dragon dragon) {
-        System.out.println("герой атакует");
+        System.out.println("герой атакует дракона");
         dragon.getsDamage(this.strength, this.weapon);
     }
 
@@ -27,10 +27,12 @@ public class Hero {
             this.shield = 0;
         }
         System.out.println("герой атакован");
-        System.out.println("здоровье до: " + this.health);
+        System.out.println("здоровье героя до: " + this.health);
         int damage = dragonStrength + dragonWeapon - this.defence;
         this.health -= damage;
-        System.out.println("здоровье после: " + this.health);
+        System.out.println("здоровье героя после: " + this.health);
+        System.out.println();
+        System.out.println("--------------------------------");
         System.out.println();
 
         if (this.health < 0) {

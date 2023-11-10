@@ -17,17 +17,19 @@ public class Dragon {
     }
 
     public void attack(Hero hero) {
-        System.out.println("дракон атакует");
+        System.out.println("дракон атакует героя");
         hero.getsDamage(this.strength, this.weapon);
     }
 
     //Урон = сила_героя + оружие_героя - защита_дракона
     public void getsDamage(int heroStrength, int heroWeapon) {
         System.out.println("дракон атакован");
-        System.out.println("здоровье до: " + this.health);
+        System.out.println("здоровье дракона до: " + this.health);
         int damage = heroStrength + heroWeapon - this.defence;
         this.health -= damage;
-        System.out.println("здоровье после: " + this.health);
+        System.out.println("здоровье дракноа после: " + this.health);
+        System.out.println();
+        System.out.println("--------------------------------");
         System.out.println();
 
         if (this.health < 0) {
