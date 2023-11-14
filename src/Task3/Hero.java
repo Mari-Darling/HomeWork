@@ -1,11 +1,14 @@
 package Task3;
 
+import java.util.Random;
+
 public class Hero {
     private int health;
     private int defence;
     private int strength;
     private int weapon;
     private int shield;
+    Random random;
 
     public Hero(int health, int defence, int strength, int weapon, int shield) {
         this.health = health;
@@ -13,14 +16,22 @@ public class Hero {
         this.strength = strength;
         this.weapon = weapon;
         this.shield = shield;
+        this.random = new Random();
     }
 
     public void attack(Dragon dragon) {
-        System.out.println("герой атакует дракона");
-        dragon.getsDamage(this.strength, this.weapon);
+        if (random.nextInt(100) < 75) { // 75% chance to hit
+            System.out.println("герой атакует дракона");
+            dragon.getsDamage(this.strength, this.weapon);
+        }
+        else {
+            System.out.println("герой промахнулся!");}
+
+
+
     }
 
-    //Урон = сила_героя + оружие_героя - защита_дракона
+    // Урон = сила_героя + оружие_героя - защита_дракона
     public void getsDamage(int dragonStrength, int dragonWeapon) {
         if (this.shield > 0) {
             this.defence += this.shield;
