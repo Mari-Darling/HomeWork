@@ -23,12 +23,9 @@ public class Hero {
         if (random.nextInt(100) < 75) { // 75% chance to hit
             System.out.println("герой атакует дракона");
             dragon.getsDamage(this.strength, this.weapon);
+        } else {
+            System.out.println("герой промахнулся!");
         }
-        else {
-            System.out.println("герой промахнулся!");}
-
-
-
     }
 
     // Урон = сила_героя + оружие_героя - защита_дракона
