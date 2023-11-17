@@ -1,6 +1,10 @@
 package Task6;
 
+import java.util.Random;
+
 public abstract class Chessman {
+
+    private Random random = new Random();
     private int xCoordinate;
     private int yCoordinate;
     private String icon;
@@ -48,9 +52,13 @@ public abstract class Chessman {
         return this.color;
     }
 
-    public void move(int x, int y) {
-        this.xCoordinate = x;
-        this.yCoordinate = y;
+    public void move() {
+        if (this.random.nextBoolean()) {
+            this.xCoordinate++;
+        } else {
+            this.yCoordinate++;
+        }
+
     }
 
     @Override
