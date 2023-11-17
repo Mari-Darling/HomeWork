@@ -1,10 +1,10 @@
 package chessmen;
 
 public abstract class ChessFigure {
-    private int xCoordinate;
-    private int yCoordinate;
-    private String figureImage;
-    private String color;
+    protected int xCoordinate;
+    protected int yCoordinate;
+    protected String figureImage;
+    protected String color;
 
     public ChessFigure(int xCoordinate, int yCoordinate, String color) {
         this.xCoordinate = xCoordinate;
@@ -12,20 +12,14 @@ public abstract class ChessFigure {
         this.color = color;
     }
 
-    public int getXCoordinate() {
-        return xCoordinate;
-    }
+    public abstract int getXCoordinate() ;
 
-    public int getYCoordinate() {
-        return yCoordinate;
-    }
+    public abstract int getYCoordinate() ;
 
-    public String getFigureImage() {
-        return figureImage;
-    }
+    public abstract String getFigureImage() ;
 
-    public String getColor() {
-        return color;
-    }
+    public abstract String getColor() ;
+
+    public abstract void move();
 
 }
