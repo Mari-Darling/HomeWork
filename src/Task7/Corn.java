@@ -1,0 +1,9 @@
+package Task7;
+
+import java.time.LocalDate;
+
+public class Corn extends Product{
+    public Corn(String title, int productExpirationDate, LocalDate producedOn) {
+        super(title, productExpirationDate, producedOn);
+    }
+}
