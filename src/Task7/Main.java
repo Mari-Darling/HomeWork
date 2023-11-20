@@ -5,7 +5,5 @@ public class Main {
         Store store = new Store();
         store.fillingTheStoreWithGoods();
         store.doInspection();
-
-//        System.out.println(new Store().getClass().getSimpleName());
     }
 }
