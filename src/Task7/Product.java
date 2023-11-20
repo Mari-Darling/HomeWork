@@ -1,19 +1,24 @@
 package Task7;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public abstract class Product {
 
     private String title;
-    private final int productExpirationDate;
+    private int productExpirationDate;
     private final LocalDate producedOn;
+
+    private StoragePlace place;
 
     public Product(String title, int productExpirationDate, LocalDate producedOn) {
         this.title = title;
         this.productExpirationDate = productExpirationDate;
         this.producedOn = producedOn;
+
     }
-    public  boolean isFresh(){
+
+    public boolean isFresh() {
         // Get date of production
         LocalDate productionDate = getProducedOn();
 
@@ -21,13 +26,23 @@ public abstract class Product {
         LocalDate currentDate = LocalDate.now();
 
         // Calculate the expiration date
-        LocalDate expirationDate = productionDate.plusDays(getProductExpirationDate());
+        LocalDate expirationDate = productionDate.plusDays(Long.parseLong(getProductExpirationDate()));
 
         return currentDate.isBefore(expirationDate);
     }
 
-    public int getProductExpirationDate() {
-        return productExpirationDate;
+    public void placeProductTo() {
+        Random random = new Random();
+        if (random.nextBoolean()) {
+            setPlace(StoragePlace.ICEBOX);
+        } else {
+            setPlace(StoragePlace.SHOWCASE);
+        }
+
+    }
+
+    public String getProductExpirationDate() {
+        return String.valueOf(productExpirationDate);
     }
 
     public LocalDate getProducedOn() {
@@ -36,5 +51,17 @@ public abstract class Product {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getPlace() {
+        return place.getPlace();
+    }
+
+    private void setPlace(StoragePlace place) {
+        this.place = place;
+    }
+
+    public void setProductExpirationDate(int productExpirationDate) {
+        this.productExpirationDate = productExpirationDate;
     }
 }
