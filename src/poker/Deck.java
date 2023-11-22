@@ -35,6 +35,8 @@ public class Deck {
                 cards[cardCounter++] = new Card(suit, rank);
             }
         }
+
+        shuffleArray(cards);
     }
 
     private Suit[] getSuitsArray() {
