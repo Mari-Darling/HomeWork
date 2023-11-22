@@ -22,6 +22,6 @@ public  class Card {
 
     @Override
     public String toString() {
-        return rank + this.suit.getSuit();
+        return rank + this.suit.getCardSuit();
     }
 }

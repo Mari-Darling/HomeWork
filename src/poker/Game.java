@@ -11,10 +11,4 @@ public class Game {
         deck.printDeck();
 
     }
-    private static Card getRandomCard(String[] ranks, Suit[] suits){
-        int rankChoice = random.nextInt(13);
-        int suitChoice = random.nextInt(4);
-        return new Card(suits[suitChoice], ranks[rankChoice]);
-    }
-
 }

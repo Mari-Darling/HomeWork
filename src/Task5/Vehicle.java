@@ -1,6 +1,5 @@
 package Task5;
 
-
 public abstract class Vehicle { // транспортоное средсво
 
     int speed;
@@ -8,7 +7,7 @@ public abstract class Vehicle { // транспортоное средсво
 
     String model;
 
-    public Vehicle( int speed,   String brand, String model) {
+    public Vehicle(int speed, String brand, String model) {
         this.speed = speed;
         this.brand = brand;
         this.model = model;
@@ -17,7 +16,5 @@ public abstract class Vehicle { // транспортоное средсво
     public abstract void move();
 
     public abstract void stop();
-
-
 
 }

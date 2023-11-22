@@ -3,10 +3,10 @@ package poker;
 import java.util.Random;
 
 public class Deck {
-    static Random random = new Random();
-    String[] ranks;
-    Suit[] suits;
-    Card[] cards;
+    private static Random random = new Random();
+    private String[] ranks;
+    private Suit[] suits;
+    private Card[] cards;
 
     public void printDeck() {
         for (Card card : cards) {
@@ -15,71 +15,58 @@ public class Deck {
     }
 
     public void genereitNewDeck() {
+        // счетчик для заполнения массива cards
         int cardCounter = 0;
+
+        // получение упорядоченных массивов с ранками карт и мастями
         ranks = getRanksArray();
         suits = getSuitsArray();
+
+        // перемешивание упорядоченных массивов с ранками карт и мастями
+        shuffleArray(ranks);
+        shuffleArray(suits);
+
+        // создание массива с картами
         cards = new Card[52];
 
-        for (int i = 0; i < suits.length; i++) {
-            for (int j = 0; j < ranks.length; j++) {
-                cards[cardCounter++] = new Card(suits[i], ranks[j]);
+        // заполнение массива cards случайными картами
+        for (Suit suit : suits) {
+            for (String rank : ranks) {
+                cards[cardCounter++] = new Card(suit, rank);
             }
         }
     }
 
-    public Suit[] getSuitsArray() {
-        return new Suit[]{Suit.HEARTS, Suit.PIKES, Suit.CLOVES, Suit.TILES};
+    private Suit[] getSuitsArray() {
+        // Создаем массив типа Suit с мастями
+        return new Suit[] { Suit.HEARTS, Suit.PIKES, Suit.CLOVES, Suit.TILES };
 
     }
 
     private String[] getRanksArray() {
-        String[] ranks = new String[13];
-        for (int i = 0; i < ranks.length; i++) {
-            int choice = random.nextInt(13);
-            switch (choice) {
-                case 0:
-                    ranks[i] = "2";
-                    break;
-                case 1:
-                    ranks[i] = "3";
-                    break;
-                case 2:
-                    ranks[i] = "4";
-                    break;
-                case 3:
-                    ranks[i] = "5";
-                    break;
-                case 4:
-                    ranks[i] = "6";
-                    break;
-                case 5:
-                    ranks[i] = "7";
-                    break;
-                case 6:
-                    ranks[i] = "8";
-                    break;
-                case 7:
-                    ranks[i] = "9";
-                    break;
-                case 8:
-                    ranks[i] = "10";
-                    break;
-                case 9:
-                    ranks[i] = "J";
-                    break;
-                case 10:
-                    ranks[i] = "Q";
-                    break;
-                case 11:
-                    ranks[i] = "K";
-                    break;
-                case 12:
-                    ranks[i] = "A";
-                    break;
-                default:
-                    System.out.println("ошибка");
-            }
+        // Создаем массив с рангами от 2 до A
+        return new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+    }
+
+    // используется алгоритм Фишера-Йейтса для случайного перемешиванияэлементовмассива
+    // тип Object (родитель всех остальных классов) поэтому в аргументах может бытьлюбой тип
+    public void shuffleArray(Object[] array) {
+        int n = array.length;
+
+        for (int i = n - 1; i > 0; i--) {
+            // Генерируем случайный индекс от 0 до i (включительно)
+            int j = (int) (Math.random() * (i + 1));
+
+            // Обмениваем значения элементов с индексами i и j
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         }
-        return ranks;
+    }
+
+    private static Card getRandomCard(String[] ranks, Suit[] suits) {
+        int rankChoice = random.nextInt(13);
+        int suitChoice = random.nextInt(4);
+        return new Card(suits[suitChoice], ranks[rankChoice]);
     }
 }
