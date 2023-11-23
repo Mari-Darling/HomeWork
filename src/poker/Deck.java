@@ -6,7 +6,7 @@ public class Deck {
     private static Random random = new Random();
     private String[] ranks;
     private Suit[] suits;
-    private Card[] cards;
+    private static Card[] cards;
 
     public void printDeck() {
         for (Card card : cards) {
@@ -66,9 +66,12 @@ public class Deck {
         }
     }
 
-    private static Card getRandomCard(String[] ranks, Suit[] suits) {
-        int rankChoice = random.nextInt(13);
-        int suitChoice = random.nextInt(4);
-        return new Card(suits[suitChoice], ranks[rankChoice]);
+    public Card getRandomCard() {
+        int choice = random.nextInt(cards.length);
+        return cards[choice];
     }
+    public void returnCard(Card card){
+        card.setAvalible(true);
+    }
+
 }
