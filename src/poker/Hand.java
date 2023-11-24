@@ -40,7 +40,6 @@ public class Hand {
             while (true) {
                 Card card = deck.getRandomCard();
                 if (card.isAvalible()) {
-                    // вызвать returnCard?
                     deck.returnCard(handCards[Integer.parseInt(cardNumber) - 1]);
                     handCards[Integer.parseInt(cardNumber) - 1] = card;
                     card.setAvalible(false);
