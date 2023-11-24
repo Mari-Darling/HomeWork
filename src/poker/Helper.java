@@ -1,29 +1,17 @@
 package poker;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Helper {
     Scanner scanner = new Scanner(System.in);
-
-    public void askToReturnCard(Hand hand){
-           System.out.println("введите номера карты (1-5) которую вы хотите вернуть");
-           String userInput = getUserInput();
-           // сделать проверки
-
-           // вызвать метод из Hand return card
-    } 
 
     public void askToChangeCards(Hand hand) {
 
         String[] cardsToChange;
         String userInput;
 
-        System.out.println("""
-                введите номера карт (1-5) которые вы хотите заменить \
-                через пробел например 0 3 4 заменит 0,3,4 карты соответственно
-                либо нажмите Enter чтобы пропустить действие \
-                """);
+        System.out.println("введите номера карт (1-5) которые вы хотите заменить через пробел например 1 3 4 \n" +
+                "заменит 1,3,4 карты соответственно либо нажмите Enter чтобы пропустить действие ");
 
         // проверка ввода, вайл крутится пока не будет верного ввода
         while (true) {
@@ -44,8 +32,6 @@ public class Helper {
         }
 
         cardsToChange = userInput.split(" ");
-        System.out.println(cardsToChange.length);
-        System.out.println(Arrays.toString(cardsToChange));
 
         hand.changeCards(cardsToChange);
 
@@ -88,5 +74,5 @@ public class Helper {
     private String getUserInput() {
         return scanner.nextLine().trim();
     }
-    
+
 }

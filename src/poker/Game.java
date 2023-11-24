@@ -16,6 +16,9 @@ public class Game {
         hand.showHand();
         helper.askToChangeCards(hand);
         hand.showHand();
+        if (new WinningCombinations().isFlash(hand.handCards)) {
+            System.out.println("Flash!");
+        }
 
     }
 }

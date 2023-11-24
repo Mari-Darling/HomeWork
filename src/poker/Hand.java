@@ -19,16 +19,18 @@ public class Hand {
     }
 
     public void showHand() {
-        int i = 0;
-        for (; i < handCards.length - 1; i++) {
-            System.out.printf("%-15d|", i);
+        int i = 1;
+        for (; i < handCards.length; i++) {
+            System.out.printf(" %6d   ", i);
+            System.out.print("|");
         }
-        System.out.printf("%-15d%n", i);
+        System.out.printf(" %6d   %n", i);
 
         for (i = 0; i < handCards.length - 1; i++) {
-            System.out.printf("%-15s|", handCards[i]);
+            System.out.printf(" %6s   ", handCards[i]);
+            System.out.print("|");
         }
-        System.out.printf("%-15s%n", handCards[i]);
+        System.out.printf(" %6s   %n", handCards[i]);
     }
 
     public void changeCards(String[] cardNumbers) {
@@ -39,6 +41,7 @@ public class Hand {
                 Card card = deck.getRandomCard();
                 if (card.isAvalible()) {
                     // вызвать returnCard?
+                    deck.returnCard(handCards[Integer.parseInt(cardNumber) - 1]);
                     handCards[Integer.parseInt(cardNumber) - 1] = card;
                     card.setAvalible(false);
                     break;

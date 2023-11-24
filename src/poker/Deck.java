@@ -41,13 +41,13 @@ public class Deck {
 
     private Suit[] getSuitsArray() {
         // Создаем массив типа Suit с мастями
-        return new Suit[] { Suit.HEARTS, Suit.PIKES, Suit.CLOVES, Suit.TILES };
+        return new Suit[]{Suit.HEARTS, Suit.PIKES, Suit.CLOVES, Suit.TILES};
 
     }
 
     private String[] getRanksArray() {
         // Создаем массив с рангами от 2 до A
-        return new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+        return new String[]{"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
     }
 
     // используется алгоритм Фишера-Йейтса для случайного перемешиванияэлементовмассива
@@ -70,7 +70,8 @@ public class Deck {
         int choice = random.nextInt(cards.length);
         return cards[choice];
     }
-    public void returnCard(Card card){
+
+    public void returnCard(Card card) {
         card.setAvalible(true);
     }
 

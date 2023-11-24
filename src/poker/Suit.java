@@ -1,7 +1,7 @@
 package poker;
 
 public enum Suit {
-    HEARTS("\u2660 (Hearts)"), TILES("\u2665 (Tiles)"), CLOVES("\u2666 (Cloves)"), PIKES("\u2663 (Pikes)");
+    HEARTS("\u2660"), TILES("\u2665"), CLOVES("\u2666"), PIKES("\u2663");
 
     private final String cardSuit;
 
@@ -12,4 +12,6 @@ public enum Suit {
     public String getCardSuit() {
         return cardSuit;
     }
+
+
 }

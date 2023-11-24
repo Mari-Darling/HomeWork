@@ -1,10 +1,10 @@
 package poker;
 
-public  class Card {
+public class Card {
 
     private Suit suit; // масть
     private String rank; // ранг  или значение карты
-    private  boolean isAvalible;
+    private boolean isAvalible;
 
     public Card(Suit suit, String rank) {
         this.suit = suit;
@@ -18,6 +18,10 @@ public  class Card {
 
     public void setAvalible(boolean available) {
         isAvalible = available;
+    }
+
+    public Suit getSuit() {
+        return suit;
     }
 
     @Override
