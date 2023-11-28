@@ -11,7 +11,7 @@ public class InputChecker {
 
     private void checkIfNumber(String number) throws NumberFormatException {
         try {
-            Integer.parseInt(number);
+            Double.parseDouble(number);
         } catch (NumberFormatException e) {
             throw new NumberFormatException("введено не число");
         }
